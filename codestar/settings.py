@@ -60,6 +60,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [     
+	"https://*.codeinstitute-ide.net/",     "https://*.herokuapp.com" 
+]
+
 ROOT_URLCONF = 'codestar.urls'
 
 TEMPLATES = [
