@@ -22,6 +22,7 @@ class Post(models.Model):
 	)
 	# a text field for the comment body
 	content = models.TextField()
+	excript = models.TextField(blank=True)
 	# date time field to show when created
 	created_on = models.DateTimeField(auto_now_add=True)
 	# and our status for the post, whether it's a draft or published
