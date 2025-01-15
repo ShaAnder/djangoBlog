@@ -9,6 +9,17 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # our post model here takes the argument of the the model class
 class Post(models.Model):
+
+	#we can add methods and other "classes" inside of a model class
+
+	# this meta class will allow us to order our posts by creation date
+	class Meta:
+		ordering = ["-created_on", "author"]
+
+	# the __str__ class will allow us to view the names of our posts
+	def __str__(self):
+		return f"{self.title} | written by {self.author}"
+
 	# title with a characterfield of 200 chars, is unique
 	title = models.CharField(max_length=200, unique=True)
 	# slugfield is a charfield but allows numbers, hypens ect
@@ -28,7 +39,17 @@ class Post(models.Model):
 	# and our status for the post, whether it's a draft or published
 	status = models.IntegerField(choices=STATUS, default=0)
 
+	
+
+
 class Comment(models.Model):
+
+	class Meta:
+		ordering = ["created_on"]
+
+	def __str__(self):
+		return f"Comment: {self.body} by {self.author}"
+
 	post = models.ForeignKey(
 		Post, 
 		on_delete=models.CASCADE, 
