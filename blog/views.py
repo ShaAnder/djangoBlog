@@ -12,4 +12,6 @@ class PostList(generic.ListView):
 	# this gets all of our post objects in a var called queryset
 	queryset = Post.objects.all()
 	# this identifies our template to send all the post objects
-	template_name = "post_list.html"
+	template_name = "blog/index.html"
+	#we also create a paginate var
+	paginate_by = 6

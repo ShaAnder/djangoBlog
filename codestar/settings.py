@@ -26,6 +26,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
+# TEMPLATES Dir constant to build a path for our templates
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+# STATIC Dir 
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -71,7 +77,7 @@ ROOT_URLCONF = 'codestar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
